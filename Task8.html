@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-7</title>
+</head>
+
+<body>
+    <form>
+        Enter a word : <input type="text" id="string"><br><br>
+        Alphabetical order : <span id="sorted"></span><br><br>
+        <button type="button" onclick="sortstr()">Sort</button>
+    </form>
+    <script type="text/javascript">
+        function sortstr() {
+            let str = document.getElementById("string").value;
+            let arr = Array.from(str);
+            for (let i = 0; i < arr.length - 1; i++) {
+                for (let j = 0; j < arr.length - i - 1; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        let temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+            let ans = arr.join("");
+            document.getElementById("sorted").innerText = ans;
+        }
+    </script>
+</body>
+
+</html>

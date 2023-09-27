@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-10</title>
+</head>
+
+<body>
+    <div>
+        <button type="button" onclick="showdate()">show date</button>
+        <p id="date"></p>
+    </div>
+    <br><br>
+    <div>
+        <button type="button" onclick="showtime()">show time</button>
+        <p id="time"></p>
+    </div>
+
+    <script>
+        function showdate() {
+            const date = new Date();
+            let day = date.getDate();
+            let year = date.getFullYear();
+            let mon = date.toLocaleDateString('default',{month: 'long'});
+            document.getElementById("date").innerText = day + '/' + mon + '/' + year;        
+        }
+
+        function showtime() {
+            const date = new Date();
+            document.getElementById("time").innerText = date;   
+        }
+    </script>
+</body>
+
+</html>

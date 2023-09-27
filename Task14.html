@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-14</title>
+    <style>
+        main {
+            background-image: linear-gradient(rgba(255, 255, 0, 0.526), pink);
+            
+        }
+
+        h1 {
+            color: blue;
+            text-align: center;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .inputwidth {
+            width: 400px;
+        }
+
+        .leftalign {
+            text-align: left;
+        }
+
+        .rightalign {
+            text-align: right;
+        }
+
+        .button-pos {
+            text-align: center;
+        }
+
+        button {
+            background-color: red;
+            border-radius:10px;
+            color: white;
+        }
+
+        .strength-weak {
+            color: red;
+        }
+
+        .strength-strong {
+            color: green;
+        }
+
+        .msg {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Registration form</h1>
+        <form onsubmit="return validate()">
+            <table align="center">
+                <tr>
+                    <td><label for="fn">First Name</label></td>
+                    <td><input class="inputwidth" id="fn" type="text" name="fn" oninput="validatename(id)" /></td>
+                    <td><span class="msg" id="strengthfn"></span></td>
+                </tr>
+                <tr>
+                    <td><label for="ln">Last Name</label></td>
+                    <td><input class="inputwidth" id="ln" type="text" name="ln" oninput="validatename(id)"/></td>
+                    <td><span class="msg" id="strengthln"></span></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email</label></td>
+                    <td><input class="inputwidth"  id="email" type="text" name="email" oninput="validateemail()"/></td>
+                    <td><span class="msg" id="strengthemail"></span></td>
+                </tr>
+                <tr>
+                    <td><label for="pw">Password</label></td>
+                    <td><input class="inputwidth" id="pw" type="password" name="pw" oninput="validatepw()"/></td>
+                    <td><span class="msg" id="strengthpw"></span></td>
+                </tr>
+                <tr>
+                    <td><label for="repw">Re-enter Password</label></td>
+                    <td><input class="inputwidth" id="repw" type="password" name="repw" oninput="validaterepw()"/></td>
+                    <td><span class="msg" id="strengthrepw"></span></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><label for="gen">Gender:</label></td>
+                    <td class="leftalign"><input type="radio" name="gen" />Male</td>
+                </tr>
+                <tr>
+                    <td class="leftalign"><input type="radio" name="gen" />Female</td>
+                </tr>
+                <tr>
+                    <td><label for="age">Age:</label></td>
+                    <td><input class="inputwidth" id="age" type="number" name="age" oninput="validateage()"/></td>
+                    <td><span class="msg" id="strengthage"></span></td>
+                </tr>
+                <tr>
+                    <td><label for="ph">Phone Number</label></td>
+                    <td><input class="inputwidth" id="pho" type="number" name="ph" oninput="validatepho()"/></td>
+                    <td><span class="msg" id="strengthpho"></span></td>
+                </tr>
+                <tr>
+                    <td><label for="address">Address</label></td>
+                    <td><textarea class="inputwidth" id="address" oninput="validateaddress()"></textarea></td>
+                    <td><span class="msg" id="strengthaddress"></span></td>
+                </tr>
+                <tr>
+                    <td><label for="state">State</label></td>
+                    <td><input class="inputwidth" id="state" type="text" name="state" oninput="validatestate()"/></td>
+                    <td><span class="msg" id="strengthstate"></span></td>
+                </tr>
+                <tr>
+                    <td><label for="country">Country</label></td>
+                    <td class="leftalign">
+                        <select>
+                            <option>Choose your country</option>
+                            <option>India</option>
+                            <option>Australia</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="lang">Languages known</label></td>
+                    <td class="leftalign">
+                        <input type="checkbox" />English
+                        <input type="checkbox" />Kannada
+                        <input type="checkbox" />Hindi
+                        <input type="checkbox" />Telegu
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="leftalign"><input type="checkbox" />Hereby I declare all the given details
+                        are
+                        true</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="rightalign">Log in to <a href="https://www.codemithra.com">Ethnus</a> website
+                    </td>
+                </tr>
+                <tr class="button-pos">
+                    <td colspan="2"><button>Register</button></td>
+                </tr>
+            </table>
+        </form>
+    </main>
+
+    <script>
+        function showmsg(id, msg, status) {
+            document.getElementById("strength"+id).innerHTML = '<span class="strength-' + status + '">' + msg + '</span>';
+        }
+
+        function validatename(id) {
+            let name = document.getElementById(id).value;
+            if (name.length < 5) {
+                showmsg(id, "POOR", "weak");
+            }
+            else {
+                showmsf(id, "STRONG", "strong");
+            }
+        }
+
+        function validateemail() {
+            let email = document.getElementById("email").value;
+            if (email.length < 5 || email.includes("@") == false || email.includes(".com") == false) {
+                showmsg("email", "POOR", "weak");
+            }
+            else {
+                showmsg("email", "STRONG", "strong");
+            }
+        }
+
+        function validatepw() {
+            let pw = document.getElementById("pw").value;
+            if (pw.length < 5) {
+                showmsg("pw", "POOR", "weak");
+            }
+            else {
+                showmsg("pw", "STRONG", "strong");
+            }
+        }
+
+        function validaterepw() {
+            let pw = document.getElementById("pw").value;
+            let repw = document.getElementById("repw").value;
+            if (repw.length < 5 || pw != repw) {
+                showmsg("repw", "POOR OR MISMATCH", "weak");
+            } 
+            else {
+                showmsg("repw", "STRONG", "strong");
+            }
+        }
+
+        function validateage() {
+            let age = document.getElementById("age").value;
+            if (age < 18) {
+                showmsg("age", "POOR", "weak");
+            }
+            else {
+                showmsg("age", "STRONG", "strong");
+            }
+            
+        }
+
+        function validatepho() {
+            let pho = document.getElementById("pho").value;
+            if (pho.length != 10) {
+                showmsg("pho", "POOR", "weak");
+            }
+            else showmsg("pho", "STRONG", "strong");
+        }
+
+        function validateaddress() {
+            let address = document.getElementById("address").value;
+            if (address.length < 10) {
+                showmsg("address", "POOR", "weak");
+            }
+            else {
+                showmsg("address", "STRONG", "strong");
+            }
+        }
+
+        function validatestate() {
+            let state = document.getElementById("state").value;
+            const list = new Array("Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Goa","Gujarat","Haryana","Himachal Pradesh","Jharkhand","Karnataka","Kerala","Madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan","Sikkim","Tamil Nadu","Telangana","Tripura","Uttarakhand","Uttar Pradesh","West Bengal");
+            state = state.trim();
+            state.toLowerCase();
+            for (let i = 0; i < list.length; i++) {
+                if (list[i].toLowerCase() == state.toLowerCase()) {
+                    showmsg("state", "STRONG", "strong");
+                    return;
+                }
+            }
+            showmsg("state", "POOR", "weak");
+        }   
+    </script>
+</body>
+
+</html>

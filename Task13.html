@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-13</title>
+    <style>
+        h3 {
+            color: rgb(10, 10, 142);
+        }
+    </style>
+</head>
+
+<body>
+
+    <form>
+        <img id="image" src="train.png" />
+        <h3>Click the following buttons below to handle animation</h3>
+        <input type="button" value="Start" onclick="move();" />
+        <input type="button" value="Stop" onclick="stop();" />
+    </form>
+
+    <script>
+        var img = null;
+        var animate;
+
+        function move() {
+            img.style.left = parseInt(img.style.left) + 10 + 'px';
+            animate = setTimeout(move, 25);
+        }
+
+        function stop() {
+            clearTimeout(animate);
+            img.style.left = '0px';
+        }
+
+        function onscreen() {
+            img = document.getElementById('image');
+            img.style.position = 'relative';
+            img.style.left = '10px';
+        }
+
+        window.onload = onscreen;
+    </script>
+
+</html>
+</body>
+
+</html>

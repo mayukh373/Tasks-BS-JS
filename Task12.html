@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Task-12</title>
+    <style>
+        i {
+            overflow: hidden;
+            position: absolute;
+            padding: 9px;
+            z-index: 1;
+            background-color: rgba(162, 159, 159, 0.374);
+            border-right: 1px solid rgba(128, 128, 128, 0.374);
+            border-radius: 3px 0px 0px 3px;
+        }
+
+        .form-input {
+            padding: 8px 0px 8px 40px;
+            position: relative;
+            border: 1px solid rgba(128, 128, 128, 0.374);
+            border-radius: 3px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            background-color: rgba(0, 0, 255, 0.358);
+            border: none;
+            padding: 8px 0px;
+            color: white;
+            font-weight: bolder;
+            border-radius: 3px;
+        }
+
+        .button-enable {
+            background-color: blue;
+        }
+
+        .button-hover {
+            cursor: pointer;
+        }
+
+        table {
+            background-color: rgba(216, 213, 213, 0.258);
+            width: 30%;
+            box-shadow: 0px 1px 2px 1px rgba(128, 128, 128, 0.377);
+        }
+
+        td {
+            padding-bottom: 15px;
+        }
+
+        .info {
+            width: 100%;
+            display: inline-flex;
+        }
+
+        .remember-me {
+            flex-grow: 6;
+        }
+
+        .forgot-pw {
+            flex-grow: 6;
+            text-align: end;
+        }
+
+        .heading {
+            text-align: center;
+            padding-bottom: 0px;
+        }
+
+        a {
+            text-decoration: none;
+            color:blue;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+
+        <form>
+            <center>
+                <table>
+                    <tr>
+                        <td class="heading">
+                            <h2><em>Instagram</em></h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="fa-solid fa-user"></i>
+                            <input class="form-input" type="text" name="un" id="un" placeholder="Username"
+                                oninput="validatesubmit()"><label for="un"></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="fa-solid fa-lock"></i>
+                            <input class="form-input" type="password" name="pw" id="pw" placeholder="Password"
+                                oninput="validatesubmit()"><label for="pw"></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><button id="button" type="submit" disabled>Log in</button></td>
+                    </tr>
+                    <tr>
+                        <td class="info">
+                            <div class="remember-me"><input type="checkbox">Remember me</div>
+                            <div class="forgot-pw"><a href="#">Forgot Password?</a></div>
+                        </td>
+                    </tr>
+                </table>
+                <p>Don't have an account? <a href="#">Sign up here.</a></p>
+            <center>
+        </form>
+    </main>
+    <script>
+        function validatesubmit() {
+            let un = document.getElementById("un").value;
+            let pw = document.getElementById("pw").value;
+            let button = document.getElementById("button");
+
+            if (un.length > 0 && pw.length > 0) {
+                button.classList.add("button-enable", "button-hover");
+                button.disabled = false;
+            }
+            else {
+                button.disabled = true;
+                button.classList.remove("button-enable", "button-hover");
+            }
+        }
+    </script>
+</body>
+
+</html>

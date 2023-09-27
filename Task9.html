@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-9</title>
+    <style>
+        table {
+            padding: 5px;
+            border: 1px solid black;
+        }
+
+        input {
+            border: 2px solid rgba(128, 128, 128, 0.515);
+        }
+
+        button {
+            background-image: linear-gradient(white, rgba(128, 128, 128, 0.295));
+            border: 2px solid rgba(74, 73, 73, 0.514);
+            border-radius: 4px;
+        }
+
+        button:focus {
+            border: 2px solid rgba(20, 175, 242, 0.771);
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <form>
+            <table>
+                <tr>
+                    <td><label for="num1">1st Number: </label></td>
+                    <td><input type="number" id="num1"></td>
+                </tr>
+                <tr>
+                    <td><label for="num2">2nd Number:</label></td>
+                    <td><input type="number" id="num2"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div><button type="button" onclick="multiply()">Multiply</button>
+                            <button type="button" onclick="divide()">Divide</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" id="ans"></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+
+    <script>
+        function multiply() {
+            var num1 = document.getElementById("num1").value;
+            var num2 = document.getElementById("num2").value;
+            document.getElementById("ans").innerHTML = 'The Result Is : ' + '<br>' + num1 * num2;
+        }
+        function divide() {
+            var num1 = document.getElementById("num1").value;
+            var num2 = document.getElementById("num2").value;
+            document.getElementById("ans").innerHTML = 'The Result Is : ' + '<br>' + num1 / num2;
+        }
+    </script>
+</body>
+
+</html>
